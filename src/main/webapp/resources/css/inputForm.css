@@ -1,0 +1,109 @@
+input[type=checkbox] {zoom: 1.3;}
+input[type=text]::placeholder,input[type=password]::placeholder {
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  color: #bbb;
+  font-size: 1em;
+}
+#check{display: none;}
+#changeBtnBar {
+  padding-top: 80px;
+  cursor: pointer !important;
+}
+#form {
+  padding: 30px 20px;
+  margin: 0 auto;
+  margin-top: 0px;
+  /* margin-bottom: 9px; */
+  width: 700px;
+  box-shadow: 0px 1px 3px 1px #d0d0d0;
+  /* border-radius: 1; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #fff;
+}
+/*#form #company, #form #companyTitle {display: none;}*/
+.form-item {
+  font-size: 1.2em;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px 0px #b0b0b0;
+  cursor: pointer;
+  /* width: 30%; */
+}
+.form-item:hover {
+  background-color: #f0f0f0;
+}
+.form-item + div > input {
+  padding: 0px 5px;
+  text-align: center;
+}
+.item-row {
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.categori {
+  font-size: 1.2em;
+  font-weight: 500;
+  box-shadow: 0px 1px 3px 0px #d6d6d6;
+  border-radius: 30px;
+  padding: 10px 0px;
+  margin-bottom: 15px;
+  margin-top: 12px;
+  pointer-events: none;
+}
+.categori-item {
+  /* margin-right: 10px; */
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-weight: 500;
+  font-size: 1em;
+  pointer-events: none;
+}
+.checkFrom input[type=checkbox] {margin-left: 10px;}
+.invalid-feedback {
+  position: absolute;
+  top: 32px;
+}
+
+.pwdDangerForm {
+	width: 80%;
+	margin: 0 auto;
+}
+#pwdDanger {
+	font-size: 0.9em;
+	font-weight: 300;
+}
+.pwdDangerBar {display: none;}
+#pwdDanger1 {
+	width: 33%;
+	height: 5px;
+	background-color: #ff6666; 
+	border-bottom-left-radius: 3px; 
+	border-top-left-radius: 3px;
+}
+#pwdDanger2 {
+	width: 66%;
+	height: 5px;
+	background-color: #ffdd66;
+	border-bottom-left-radius: 3px; 
+	border-top-left-radius: 3px;
+}
+#pwdDanger3 {
+	width: 100%;
+	height: 5px;
+	background-color: #66ff66;
+	border-radius: 3px;
+}
+
+#pwdInfor {font-size: 0.8em; font-weight: 300; padding: 0px;}
+
+#pwdSubInfor {
+		font-size: 0.8em;
+		position: absolute;
+		color: red;
+		margin-left: 3px;
+		font-weight: 300;
+}

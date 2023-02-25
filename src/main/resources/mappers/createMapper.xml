@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.CreateDAO" >
+	
+	<select id="getIdCheck" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user where mid = #{mid};
+	</select>
+	<select id="getEmailCheck" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user where email = #{email};
+	</select>
+	<select id="getTelCheck" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user where tel = #{tel};
+	</select>
+	<select id="searchCodeInfor" resultType="com.spring.green2209S_17.vo.UserVO">
+		select email from emailAct where code = #{code};
+	</select>
+	<select id="searchEmailInfor" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from emailAct where email = #{email};
+	</select>
+	<select id="getCpIdCheck" resultType="com.spring.green2209S_17.vo.CompanyVO">
+		select * from company where mid = #{mid};
+	</select>
+	<select id="getCpNameCheck" resultType="com.spring.green2209S_17.vo.CompanyVO">
+		select * from company where cpName = #{cpName};
+	</select>
+	
+	<select id="getUser" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user where idx = #{i};
+	</select>
+	<update id="updatedata">
+		update user set email = #{vo.email},birth = #{birth},tel = #{vo.tel},createDay = #{createDay},userLevel = '일반',point = 10000 where mid = #{vo.mid};
+	</update>
+	
+	
+	<insert id="setCreateUser_Step1">
+		insert into user values(default,#{vo.mid},'NoPwd',#{vo.email},'2000-01-01',#{vo.tel},default,default,default);
+		insert into emailAct values(default,#{vo.email},#{code});
+	</insert>
+	<insert id="setCreateCompany">
+		insert into company values(default,#{cpVO.name},#{cpVO.cpName},#{cpVO.cpAddr},#{cpVO.cpHomePage},#{cpVO.cpIntro},#{cpVO.cpExp},default,#{cpVO.mid},default,0);
+	</insert>
+	<insert id="setCreateCompanyImg">
+		insert into companyImg values(default,#{idx},#{cpImgVO.cpImg},#{cpImgVO.cpImg},'',#{cpImgVO.imgSize});
+	</insert>
+	
+	<update id="setUpdateEmailCode">
+		update emailAct set code = #{code} where email = #{email};
+	</update>
+	<update id="setCreateUser_Step2Update">
+		update user set pwd = #{vo.pwd}, birth = #{vo.birth}, userLevel = '일반' where email = #{vo.email};
+	</update>
+	<update id="saveImgUpdate">
+		update companyImg set cpImg = #{sFileName} where cpImgOri = #{fileName};
+	</update>
+	<update id="accStopDateDefault">
+		update user set accStop = null where idx = #{idx};
+	</update>
+	
+	<delete id="setCreateUser_Step2Delete">
+		delete from emailAct where email = #{vo.email};
+	</delete>
+	
+</mapper>

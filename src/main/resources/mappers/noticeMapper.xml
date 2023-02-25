@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.NoticeDAO" >
+	<select id="getNoticeType" resultType="com.spring.green2209S_17.vo.NoticeVO">
+		select * from realNotice where noticeType = #{noticeType} and noctieMid = #{noctieMid};
+	</select>
+	<select id="checkNotice" resultType="com.spring.green2209S_17.vo.NoticeVO">
+		select * from realNotice where noctieMid = #{mid} and status in ('n','r') order by noticeDay;
+	</select>
+	<select id="loadRoomData" resultType="com.spring.green2209S_17.vo.ChatVO">
+		select g.*,ifnull(group_concat(h.cpImg),(select profile from user where mid in (g.sendId,g.receiveId) and mid not in (#{mid}))) as oppImg
+			from (select e.*,ifnull(group_concat(f.cpName),'') as oppCpName ,ifnull(group_concat(f.mid),'') as oppCpMid, ifnull(group_concat(f.idx),'') as oppCpIdx
+							from (select d.*,c.roomId 
+											from (select max(a.sendDay) as lastDay,b.roomId
+															from chatcontent a INNER join chatroomid b 
+															on (a.sendId = b.userId_1 or a.receiveId = b.userId_1) and (a.sendId = b.userId_2 or a.receiveId = b.userId_2)
+															and (a.sendId = #{mid} or a.receiveId = #{mid}) group by roomId) c
+											inner join chatcontent d on sendDay in (c.lastDay) group by c.roomId) e
+							left join company f on f.mid in (e.sendId,e.receiveId) and f.mid not in (#{mid})
+							group by e.roomId,e.idx) g 
+			left join companyImg h
+			on h.cidx in (g.oppCpIdx)
+			group by g.idx
+			order by g.sendDay desc;
+	</select>
+	
+	<update id="updateNotice">
+		update realNotice set noticeType = #{noticeType},noticeDay = now(),url = #{url},status = 'n' where noticeType = #{noticeType} and noctieMid = #{noctieMid};
+	</update>
+	<update id="noticeCheck">
+		update realNotice set status = 'r' where idx in (${idxList});
+	</update>
+	<update id="noticeDelete">
+		update realNotice set status = 'x' where idx = #{idx};
+	</update>
+	
+	<insert id="createNotice">
+		insert into realNotice values(default,#{noticeType},#{noticeContent},#{noctieMid},default,#{url},default);
+	</insert>
+	
+	
+</mapper>

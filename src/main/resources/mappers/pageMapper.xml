@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.PageDAO" >
+	
+	<select id="totTermRecCnt" resultType="int">
+		select count(*) from ${tableName} where ${feildName} like '%${feildWord}%' ${other};
+	</select>
+	<select id="totTermRecCntManyWords" resultType="int">
+		select count(*) from ${tableName} where ${feildName} REGEXP #{feildWord} ${other};
+	</select>
+	<select id="totTermRecCnt_Search" resultType="int">
+		select count(*) from ${tableName} where ${searching} and (${feildName} like '%${feildWord}%') ${other};
+	</select>
+	<select id="totTermRecCntManyWords_Search" resultType="int">
+		select count(*) from ${tableName} where (${feildName} REGEXP #{feildWord}) and ${searching} ${other};
+	</select>
+	
+	<select id="getTermList" resultType="hashmap">
+		select ${select} from ${tableName} where ${feildName} like '%${feildWord}%' ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
+	</select>
+	<select id="getTermListManyWords" resultType="hashmap">
+		select ${select} from ${tableName} where ${feildName} REGEXP #{feildWord} ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
+	</select>
+	<select id="getTermList_Search" resultType="hashmap">
+		select ${select} from ${tableName} where ${searching} and (${feildName} like '%${feildWord}%') ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
+	</select>
+ 	<select id="getTermListManyWords_Search" resultType="hashmap">
+		select ${select} from ${tableName} where ${searching} and (${feildName} REGEXP #{feildWord}) ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
+	</select>
+	
+	
+</mapper>

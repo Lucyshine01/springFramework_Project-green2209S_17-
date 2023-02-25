@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.PointDAO" >
+
+	<select id="getPointInfo" resultType="com.spring.green2209S_17.vo.PointVO">
+		select * from point where useMid=#{mid} order by usePointDay desc;
+	</select>
+	
+	<update id="updatePoint">
+		update user set point = #{leftPoint} where mid = #{mid};
+	</update>
+	
+	<insert id="usePoint">
+		insert into point values(default,#{mid},#{usePoint},#{leftPoint},#{useContent},now());
+	</insert>
+	
+</mapper>

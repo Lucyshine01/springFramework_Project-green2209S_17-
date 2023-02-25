@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.PaymentDAO" >
+	
+	<update id="userChargePoint">
+		update user set point = point + #{point} where mid = #{mid};
+	</update>
+	
+	<insert id="setFailPayment">
+		insert into payment values(default,#{vo.merchant_uid},#{vo.pay_method},'',#{vo.buyer_name},'','','','','','','',#{vo.success},#{vo.error_msg},now());
+	</insert>
+	<insert id="setSuccessPayment">
+		insert into payment values(default,#{vo.merchant_uid},#{vo.pay_method},#{vo.currency},#{vo.buyer_name},#{vo.buyer_email},#{vo.card_name},#{vo.card_number},#{vo.name},#{vo.paid_amount},#{vo.pg_tid},#{vo.receipt_url},#{vo.success},'',now());
+	</insert>
+	
+</mapper>

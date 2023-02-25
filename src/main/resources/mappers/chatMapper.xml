@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.ChatDAO" >
+	<select id="getRoomId" resultType="com.spring.green2209S_17.vo.ChatRoomVO">
+		select * from chatRoomId where userId_1 = #{mid} or userId_2 = #{mid};
+	</select>
+	<select id="getRoomInfo" resultType="com.spring.green2209S_17.vo.ChatRoomVO">
+		select * from chatRoomId where roomId = #{roomId};
+	</select>
+	<select id="getLastChatIdx" resultType="String">
+		select idx from chatContent where sendId in (#{userId_1},#{userId_2}) and receiveId in (#{userId_1},#{userId_2}) order by sendDay,idx desc limit 0,1;
+	</select>
+	<select id="getChatList" resultType="com.spring.green2209S_17.vo.ChatContentVO">
+		select * from chatContent where sendId in (#{userId_1},#{userId_2}) and receiveId in (#{userId_1},#{userId_2}) order by sendDay desc,idx desc limit ${start},${end};
+	</select>
+	
+	
+	<insert id="createRoomId">
+		insert into chatRoomId values(default,#{roomId},#{mid},#{cMid},default); 
+	</insert>
+	<insert id="saveChatContent">
+		insert into chatContent values(default,#{content},#{myMid},#{oppMid},default); 
+	</insert>
+	
+</mapper>

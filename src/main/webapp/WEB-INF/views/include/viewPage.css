@@ -1,0 +1,472 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR';
+}
+hr {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #e2e2e2;
+}
+a:hover {
+  text-decoration: none;
+}
+.width {
+  width: 1200px;
+  margin: 0 auto;
+}
+.titleContent {
+		font-size: 2.8em;
+		font-weight: 600;
+}
+.subtitleContent {
+		color: #bbb;
+		font-weight: 300;
+}
+#loginModal, #pwdChangeModal, #helpInputModal{
+	position: relative;
+	display: none;
+	opacity: 0;
+	z-index: 10;
+}
+.modalBack {
+	width: 4000px;
+	height: 4000px;
+	background-color: #000;
+	z-index: 11;
+	opacity: 0.3;
+	position: absolute;
+	left: 0px;
+	top: -200px;
+}
+.modalMain {
+	position: fixed;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	z-index: 12;
+	width: 800px;
+	border-radius: 25px;
+	background-color: #fff;
+	padding: 30px;
+}
+.modalClose {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	font-size: 2.2em;
+	color: #e74c3c;
+	cursor: pointer;
+}
+.modalClose:hover {
+	color: #c0392b;
+}
+.modalClose:active {
+	color: #a12e22;
+}
+
+
+#loading_Bar {
+  position: absolute;
+  height: 5px;
+  background-color: #fc3;
+}
+#headerTop {
+  height: 60px;
+  background-color: #fc3;
+}
+.fixTop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* z-index: 9; */
+}
+#headerTop .width {
+  height: 100%;
+  pointer-events: none;
+}
+#headerTop #hTL {
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+#headerTop #hTR {
+  font-size: 1.1em;
+  font-weight: 400;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+.fCol_center{
+  /*위에서 아래로 수직 배치*/
+  flex-direction: column;
+  /*중앙정렬*/
+  justify-content: center;
+}
+.fRow_center{
+  /*위에서 아래로 수직 배치*/
+  flex-direction: row;
+  /*중앙정렬*/
+  justify-content: center;
+}
+.header{height: 74px;}
+
+#logo {padding-top: 10px;}
+
+#searchBox {
+  position: relative;
+}
+#searchBox i {
+  position: absolute;
+  font-size: 1.2em;
+  right: 10px;
+}
+#searchBox .fa-circle-xmark {
+  cursor: pointer !important;
+  font-size: 1.5em;
+  color: #ddd;
+}
+#searchBox .fa-circle-xmark:hover {
+  color: #bbb;
+  transition: 0.3s;
+}
+.iconHidden {visibility: hidden;}
+
+#searchBox #search1{
+  padding: 10px 18px;
+  padding-right: 35px;
+  font-size: 0.9em;
+  border-radius: 20px;
+  border: none;
+  outline: 1px solid #ddd;
+  width: 250px;
+  transition: 0.3s;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+}
+#searchBox #search1:hover {
+  outline: 1px solid #999;
+  transition: 0.3s;
+}
+#searchBox #search1:focus {
+  outline: 1px solid #999;
+  /* padding-right: 150px; */
+  transition: 0.3s;
+}
+
+#searchBox #search1::placeholder {color:#ccc;}
+textarea::placeholder {
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-size: 1em;
+}
+#loginBox button{
+  font-size: 1.12em;
+  font-weight: 600;
+}
+nav {position: relative;}
+#navbardrop {
+  padding-left: 10px !important;
+  padding-right: 20px !important;
+  font-size: 1.2em !important;
+}
+.dropdown-menu {
+  top: 45px;
+  left: 10px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 0px;
+  background-color: #FAFAFA;
+  font-size: 0.8em;
+}
+.dropdown-menu a{color: #777;}
+.dropdown-menu span{
+  padding-top: 12px;
+  padding-left: 16px;
+  color: #000;
+  font-size: 1em;
+  font-weight: 700;
+}
+.none-item {pointer-events: none;}
+.navIconBox .nav-icon {
+  font-size: 1.1em;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navIconBox .nav-icon:hover {
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 5px #fda;
+}
+
+.navIconBox .nav-icon:hover + .help {
+  top: -45px;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+.navIconBox .help {
+  position: absolute;
+  padding: 12px;
+  border-radius: 3px;
+  box-shadow: 0 0px 3px 1px #eee;
+  background-color: #fff;
+  text-align: center;
+  top: -20px;
+  opacity: 0;
+  visibility: hidden;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  pointer-events: none;
+  transition: 0.3s;
+}
+#help1 {left:130px}
+#help2 {left:140px}
+#help3 {left:250px}
+#help4 {left:340px}
+/* #help2 {left:250px}
+#help3 {left:360px}
+#help4 {left:450px} */
+
+#mainView {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  transition: 0.5s;
+}
+
+#mainView_1 {
+  padding-left: 60px;
+  margin-top: 30px;
+}
+#mainViewTitle {
+  color: #fff;
+  font-family: 'Spoqa Han Sans Neo';
+  font-size: 2.4em;
+  font-weight: 500;
+}
+#mainView_searchBox{position: relative;}
+#mainView_searchBox #search2 {
+  margin: 20px 0;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid #fff;
+  padding: 12px 300px 12px 20px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-size: 1.4em;
+  color: #fff;
+}
+#mainView_searchBox i {
+  position: absolute;
+  font-size: 2.2em;
+  top: 30px;
+  right: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#mainView .hasTag {
+  margin-left: 15px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: rgba( 255, 255, 255, 0.05);
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+#slideImg {
+  position: relative;
+  width: 500px;
+  z-index: 2;
+}
+.carousel-inner img {
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+}
+#slideNumbar {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.7;
+  padding: 3px 8px;
+  border-radius: 24px;
+  left: 80%;
+  top: 85%;
+  z-index: 1;
+}
+#slideNumbar span {
+  color: #fff;
+}
+.carousel-btn {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  top: 42%;
+  background-color: #fff;
+  border-radius: 35px;
+  font-size: 1em;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.carousel-btn:hover {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#category {padding-bottom: 50px;}
+
+.category_Icon {
+  /* border: 1px solid #ccc; */
+  border-radius: 30px;
+  padding: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.category_Icon:hover {
+  background-color: #f0f0f0;
+  transition: 0.3s;
+}
+.category_Icon:active {
+  background-color: #ccc;
+  transition: 0.3s;
+}
+.category_Icon span {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: 'Spoqa Han Sans Neo';
+  pointer-events: none;
+}
+
+
+#advBox {
+  background-color: #f0f0f0;
+  padding-bottom: 50px;
+}
+#advBox .adv {
+  /* border: 1px solid #999; */
+  width: 360px;
+  margin: 0px 20px;
+  box-shadow: 0px 0px 10px 2px #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 40px;
+  padding-right: 80px;
+}
+
+#advBox .adv .advTitle {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+#advBox .adv .advSub {
+  font-size: 1.1em;
+  margin-top: 30px;
+}
+
+#helpCenter {
+  padding: 40px 0px;
+}
+#helpCenter .botMenu {
+  font-size: 1em;
+  font-weight: 300;
+  font-family: 'Spoqa Han Sans Neo';
+}
+#helpCenter > div {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.side-Menu {
+	font-family: 'Spoqa Han Sans Neo';
+	margin: 75px 50px;
+}
+
+.side-Menu .first-class {
+	font-size: 1.2em;
+	font-weight: 500;
+	margin: 10px 0px 5px 0px;
+}
+.side-Menu .second-class {
+	line-height: 28px;
+	font-size: 0.9em;
+	font-weight: 300;
+	color: #999;
+	margin: 3px 0px 3px 3px;
+	cursor: pointer;
+}
+.side-Menu .second-class:hover {
+	font-size: 15px;
+	font-weight: 400;
+	color: #555;
+}
+.main-content {
+	font-family: 'Spoqa Han Sans Neo';
+	margin: 30px 0px;
+}
+.main-content .topTitle {
+	font-size: 2em;
+	font-weight: 500;
+	font-family: 'Spoqa Han Sans Neo';
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.main-content .topCategori {
+	color: #999;
+}
+.main-content .topCategori a {text-decoration: none;}
+.main-content .topCategori a:hover {color: #999;}
+
+.cpItemBox,.cpItemText {cursor: pointer;}
+.cpItemBox:hover {overflow: hidden;}
+.cpItemBox img {
+	transform: scale(0.9);
+	transition: 0.3s;
+	overflow: hidden;
+}
+.cpItemBox:hover > img{
+	transform: scale(1.00);
+	transition: 0.3s;
+}
+
+.fileName{
+  width: 100px;
+  height: 100px;
+  font-size: 0.9em;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 2px 2px #ddd;
+}
+.fIcon {
+  color: #ccc;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 2px 2px #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2.5em;
+}
+.filebox {
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  outline: none;
+  border: none;
+} 
+
+.reply {
+	font-size: 0.95em;
+	font-weight: 400;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+

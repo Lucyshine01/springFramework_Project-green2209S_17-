@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.AdminDAO" >
+	<select id="getAllUserInfo" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user order by createDay desc;
+	</select>
+	<select id="getAllChatList" resultType="com.spring.green2209S_17.vo.ChatVO">
+		select * from chatContent order by sendDay desc;
+	</select>
+	<select id="getAllPaymentList" resultType="com.spring.green2209S_17.vo.PaymentVO">
+		select * from payment order by buyDay desc;
+	</select>
+	<select id="getAllReportList" resultType="com.spring.green2209S_17.vo.ReportVO">
+		select * from report order by reportWriteDay desc;
+	</select>
+	<select id="getAllHelpList" resultType="com.spring.green2209S_17.vo.HelpVO">
+		select * from help order by writeDay desc;
+	</select>
+	<select id="getPaymentInfo" resultType="com.spring.green2209S_17.vo.PaymentVO">
+		select * from payment where idx = #{idx};
+	</select>
+	<select id="gethelpInfo" resultType="com.spring.green2209S_17.vo.HelpVO">
+		select * from help where idx = #{idx};
+	</select>
+	<select id="getUserMonthTot" resultType="java.lang.Integer">
+		select count(*) from user 
+			where date_format(createDay,'%Y-%m') in (${day}) 
+			group by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2})
+			order by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2});
+	</select>
+	<select id="getCpMonthTot" resultType="java.lang.Integer">
+		select count(*) from company where date_format(createDayCP,'%Y-%m') <![CDATA[ <= ]]> #{day3};
+	</select>
+	<select id="getRecentUserInfo" resultType="com.spring.green2209S_17.vo.UserVO">
+		select * from user order by createDay limit 0,5;
+	</select>
+	<select id="getUserCount" resultType="java.lang.Integer">
+		select count(*) from user;
+	</select>
+	<select id="getCpCount" resultType="java.lang.Integer">
+		select count(*) from company;
+	</select>
+	<select id="getHelpCount" resultType="java.lang.Integer">
+		select count(*) from help where conf = 'off';
+	</select>
+	<select id="getReportCount" resultType="java.lang.Integer">
+		select count(*) from report;
+	</select>
+	
+	<update id="updateUserInfo">
+		update user set point = #{vo.point},accStop = #{vo.accStop} where idx = #{vo.idx};
+	</update>
+	<update id="userDelete">
+		update user set pwd = '',userLevel = '삭제' where idx = #{idx};
+	</update>
+	<update id="userAccDisable">
+		update user set accStop = #{accStop} where mid = #{vo.replyMid};
+	</update>
+	<update id="helpAnswer">
+		update help set conf = 'on', answer = #{vo.answer} where idx = #{vo.idx};
+	</update>
+	
+</mapper>

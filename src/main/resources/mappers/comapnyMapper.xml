@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.CompanyDAO" >
+	
+	<select id="getAllCpList" resultType="com.spring.green2209S_17.vo.CompanyVO">
+		select * from company order by idx desc;
+	</select>
+	<select id="getCpDetailInfo" resultType="hashmap">
+		select * from company where idx = #{idx};
+	</select>
+	<select id="getCpInfo" resultType="com.spring.green2209S_17.vo.CompanyVO">
+		select * from company where mid = #{mid};
+	</select>
+	<select id="getCpImgInfo" resultType="com.spring.green2209S_17.vo.CompanyImgVO">
+		select * from companyImg where cidx = #{idx};
+	</select>
+	
+	<update id="setUpdateCpInfo">
+		update company set name = #{vo.name},cpName = #{vo.cpName},cpAddr = #{vo.cpAddr},cpHomePage = #{vo.cpHomePage},cpIntro = #{vo.cpIntro},cpExp = #{vo.cpExp},mid = #{vo.mid},act=#{vo.act} where idx = #{vo.idx}
+	</update>
+	<update id="setSaveCpImg">
+		update companyImg set cpImg = #{vo.cpImg}, cpImgOri = #{vo.cpImgOri}, cpIntroImg = #{vo.cpIntroImg}, imgSize = #{vo.imgSize} where idx = #{vo.idx};
+	</update>
+	
+</mapper>

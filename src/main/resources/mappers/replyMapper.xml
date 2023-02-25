@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.green2209S_17.dao.ReplyDAO" >
+	
+	<select id="getStarList" resultType="String">
+		select GROUP_CONCAT(ifNull(r.rating,0))
+			from company c left join reply r on concat('c',c.idx) = r.boardidx 
+			where c.idx in (${star_WHERE})
+			group by c.idx 
+			ORDER BY FIND_IN_SET(c.idx,${star_FIND_IN_SET});
+	</select>
+	
+	<select id="getReplyList" resultType="com.spring.green2209S_17.vo.ReplyVO">
+		select r.*,u.profile as profileImg from reply r 
+			inner join user u on r.mid = u.mid
+			where boardIdx = #{boardIdx}
+			group by r.idx
+			order by writeDay desc,idx desc 
+			limit ${start},${end};
+	</select>
+	<select id="getReplyTot" resultType="int">
+		select count(*) from reply where boardIdx = #{boardIdx};
+	</select>
+	<select id="getReplyRatingAvg" resultType="double">
+		select avg(rating) from reply where boardIdx = #{boardIdx} and rating not in (0);
+	</select>
+	
+	<insert id="submitReply">
+		insert into reply values(default,#{boardIdx},#{content},${rating},now(),#{mid},#{profileImg});
+	</insert>
+	<insert id="reportReply">
+		insert into report values 
+			(default,(select idx from reply where idx = #{idx}),(select mid from reply where idx = #{idx}),
+			(select content from reply where idx = #{idx}),(select writeDay from reply where idx = #{idx})
+			,#{mid},#{reason},default);
+	</insert>
+	
+	<delete id="deleteReply">
+		delete from reply where idx = #{idx};
+	</delete>
+	
+</mapper>
