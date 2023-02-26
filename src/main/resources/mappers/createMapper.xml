@@ -33,7 +33,7 @@
 	
 	
 	<insert id="setCreateUser_Step1">
-		insert into user values(default,#{vo.mid},'NoPwd',#{vo.email},'2000-01-01',#{vo.tel},default,default,default);
+		insert into user values(default,#{vo.mid},'NoPwd',#{vo.email},'2000-01-01',#{vo.tel},default,default,default,'default.jpg',null);
 		insert into emailAct values(default,#{vo.email},#{code});
 	</insert>
 	<insert id="setCreateCompany">

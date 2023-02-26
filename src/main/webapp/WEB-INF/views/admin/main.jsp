@@ -26,17 +26,29 @@
   		now[i+10] = newDate.getMonth()+1 + "월";
   	}
   	var chartLabels = [now[0], now[1], now[2], now[3], now[4], now[5], now[6], now[7], now[8], now[9]];
+  	
+  	<c:set var="chartMax" value="0"/>
   	var chartData = [ <c:forEach var="totVo" items="${userTotVos}" varStatus="st" >${totVo}
 												<c:if test="${fn:length(userTotVos) != st.count}">,</c:if>
 											</c:forEach>]
-  	var chartMax = 20;
   	
+  	<c:forEach var="totVo" items="${userTotVos}" varStatus="st" >
+  		<c:if test="${totVo > chartMax}"><c:set var="chartMax" value="${totVo}"/></c:if>
+		</c:forEach>
+  											
+  	var chartMax = (Math.trunc(${chartMax} / 10) + 1) * 10;
   	
   	var barLabels = [now[4], now[5], now[6], now[7], now[8], now[9]];
+  	
+  	<c:set var="barMax" value="0"/>
   	var barData = [	<c:forEach var="totVo" items="${cpTotVos}" varStatus="st" >${totVo}
 											<c:if test="${fn:length(userTotVos) != st.count}">,</c:if>
-										</c:forEach> ];
-  	var barMax = 30;
+										</c:forEach>];
+  	
+  	<c:forEach var="totVo" items="${cpTotVos}" varStatus="st" >
+  		<c:if test="${totVo > chartMax}"><c:set var="barMax" value="${totVo}"/></c:if>
+		</c:forEach>
+  	var barMax = (Math.trunc(${barMax} / 10) + 1) * 10;
   </script>
 	<style>
   	.cardTitle {font-size: 1.6em; font-weight:bolder; text-align: center;}
@@ -64,7 +76,7 @@
           <div class="row">
             <div class="col-xl-3 col-md-6">
               <div class="card bg-info text-white mb-4">
-                <div class="card-body cardTitle">종합 회원수</div>
+                <div class="card-body cardTitle">종합 회원</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                   <div class="big text-white pt-2 pb-2">${userTot}명</div>
                 </div>
@@ -72,9 +84,9 @@
             </div>
             <div class="col-xl-3 col-md-6">
               <div class="card bg-primary text-white mb-4">
-                <div class="card-body cardTitle">총 업체수</div>
+                <div class="card-body cardTitle">업체회원 신청</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                  <div class="big text-white pt-2 pb-2">${cpTot} 업체</div>
+                  <div class="big text-white pt-2 pb-2">${cpTot} 건</div>
                 </div>
               </div>
             </div>

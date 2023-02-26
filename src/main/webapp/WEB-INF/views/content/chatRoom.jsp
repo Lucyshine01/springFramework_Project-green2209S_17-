@@ -227,9 +227,9 @@
   		padding: 10px;
   		margin-top: 3px;
   		margin-bottom: 3px;
-  		max-width: 250px;
-  		min-width: 60px;
-  		text-align: center;
+  		max-width: 340px;
+  		min-width: 30px;
+  		text-align: left;
   		word-wrap: break-word;
   	}
   	.left {
@@ -318,7 +318,7 @@
   	.oppNameBox {margin-left: 65px;}
   </style>
 </head>
-<body>
+<body style="min-width: 450px;">
 	<div id="main">
 		<div id="headSpace"></div>
 		<div id="chatBackground" class="pb-2 pt-2">

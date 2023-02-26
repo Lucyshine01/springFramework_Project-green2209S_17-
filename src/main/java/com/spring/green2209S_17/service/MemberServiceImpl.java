@@ -156,7 +156,7 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public void profileChange(MultipartHttpServletRequest file, HttpServletRequest request, UserVO vo) {
+	public void profileChange(MultipartHttpServletRequest file, HttpServletRequest request, UserVO vo, HttpSession session) {
 		MultipartFile profileFile = file.getFile("profile");
 		
 		UUID uid = UUID.randomUUID();
@@ -171,6 +171,8 @@ public class MemberServiceImpl implements MemberService {
 			fos.write(data);
 			fos.close();
 			if(!vo.getProfile().equals("default.jpg")) new File(realPath+vo.getProfile()).delete();
+			session.removeAttribute("sProfileImg");
+			session.setAttribute("sProfileImg",sysName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -178,10 +180,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public void profileDefault(UserVO vo, HttpServletRequest request) {
+	public void profileDefault(UserVO vo, HttpServletRequest request, HttpSession session) {
 		String realPath = request.getSession().getServletContext().getRealPath("/resources/images/profile/");
 		new File(realPath+vo.getProfile()).delete();
 		memberDAO.profileDefault(vo.getMid());
+		session.removeAttribute("sProfileImg");
+		session.setAttribute("sProfileImg","default.jpg");
 	}
 	
 	@Override
@@ -312,6 +316,7 @@ public class MemberServiceImpl implements MemberService {
 			for(ReplyVO vo : vos) {
 				String mid = vo.getMid();
 				vo.setMid(mid.substring(0,2)+"***"+mid.substring(6));
+				vo.setOriMid(mid);
 			}
 		}
 		return vos;

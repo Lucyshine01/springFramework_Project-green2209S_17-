@@ -264,7 +264,7 @@ public class MemberController {
 			) {
 		String profileImg = (String)session.getAttribute("sProfileImg");
 		int res = 0;
-		if(!mid.equals("") && !boardIdx.equals("") && !rating.equals("") && !content.equals("")) {
+		if(!mid.equals("") && !boardIdx.equals("") && !rating.equals("")) {
 			res = replyService.submitReply(mid,boardIdx,rating,content,profileImg);
 			
 			if(res == 1) {
@@ -408,10 +408,10 @@ public class MemberController {
 	
 	@Transactional
 	@RequestMapping(value = "/profileChange", method = RequestMethod.POST)
-	public String profileChangePost(HttpSession session, MultipartHttpServletRequest file, HttpServletRequest request) {
+	public String profileChangePost(HttpSession session, MultipartHttpServletRequest file, HttpServletRequest request, Model model) {
 		String mid = (String)session.getAttribute("sMid");
 		UserVO vo = memberService.getUserInfo(mid);
-		memberService.profileChange(file,request,vo);
+		memberService.profileChange(file,request,vo,session);
 		return "redirect:"+request.getHeader("referer");
 	}
 	
@@ -420,7 +420,7 @@ public class MemberController {
 	public String profileDefaultPost(HttpSession session, HttpServletRequest request) {
 		String mid = (String)session.getAttribute("sMid");
 		UserVO vo = memberService.getUserInfo(mid);
-		memberService.profileDefault(vo,request);
+		memberService.profileDefault(vo,request,session);
 		return "";
 	}
 	

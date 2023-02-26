@@ -141,7 +141,7 @@
 					let cpName = data.cpName;
 					let cpAddr = data.cpAddr;
 					let cpHomePage = data.cpHomePage;
-					let cpIntro = data.cpIntro;
+					let cpIntro = data.cpIntro.replaceAll('<br/>','\n');
 					let cpExp = data.cpExp;
 					let mid = data.mid;
 					let date = new Date(data.createDayCP);

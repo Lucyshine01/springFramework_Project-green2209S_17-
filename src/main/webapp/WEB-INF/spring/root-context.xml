@@ -72,8 +72,8 @@
 		<property name="port" value="587" />
 		<!-- <property name="username" value="jaykaybaek@gmail.com" />
 		<property name="password" value="iyvvtmhewtlkkezl" /> -->
-		<property name="username" value="saasdfgh01@gmail.com" />
-		<property name="password" value="qzrjfnozisepujju" />
+		<property name="username" value="saasdfgh03@gmail.com" />
+		<property name="password" value="mmydhxwasufnzvfd" />
 		<!-- 자바환경의 프로퍼티스를 맞춘다 -->
 		<property name="javaMailProperties">
 			<props>

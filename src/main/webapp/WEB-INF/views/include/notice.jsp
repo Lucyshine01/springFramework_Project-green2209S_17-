@@ -19,7 +19,7 @@
 				<div id="chatBar" class="modalRel">
 					<div class="noticeModal d-flex">
 						<div class="p-2 pl-3 text-left" style="border-bottom: 1px solid rgba(50,50,50,0.2)">채팅</div>
-						<div id="chatContent" class="d-flex noticeModal_objBoard"><div class="mt-5">대화방이 없습니다.</div></div>
+						<div id="chatContent" class="d-flex noticeModal_objBoard"></div>
 					</div>
 				</div>
 			</div>
@@ -136,6 +136,7 @@
 					block += '<div class="timeBlock">'+ cVOS[i].sendDay.substring(5,7) + "." + cVOS[i].sendDay.substring(8,10) + "<br/>" + hh + ":" + mm +'</div>';
 					block += '</div></div>';
 				}
+				if(cVOS.length <= 0) block = '<div class="mt-5">대화방이 없습니다.</div>';
 				$("#chatContent").html(block);
 			},
 			error: function() {alert("연결 오류");}

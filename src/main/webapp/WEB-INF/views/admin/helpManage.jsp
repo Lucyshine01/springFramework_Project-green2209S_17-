@@ -57,11 +57,11 @@
     <div id="layoutSidenav_content">
       <main>
         <div class="container-fluid px-4">
-          <h1 class="mt-4 mb-4">신고내역 관리</h1>
+          <h1 class="mt-4 mb-4">문의내역 관리</h1>
           <div class="card mb-4">
             <div class="card-header">
               <i class="fas fa-table me-1"></i>
-              신고 목록 테이블
+              문의 목록 테이블
             </div>
             <div class="card-body">
               <table id="datatablesSimple" class="text-center">
@@ -120,7 +120,7 @@
 					let content = data.content;
 					
 					$("#title").val(title);
-					$("#content").val(content);
+					$("#content").val(content.replaceAll('<br/>','\n'));
 					
 					if(data.answer == '' || data.answer == null) {
 						$("#answer").val('');
@@ -129,7 +129,7 @@
 						return;
 					}
 					else {
-						$("#answer").val(data.answer);
+						$("#answer").val(data.answer.replaceAll('<br/>','\n'));
 						document.getElementById("answer").disabled = true;
 						document.getElementById("helpBtn").disabled = true;
 					}

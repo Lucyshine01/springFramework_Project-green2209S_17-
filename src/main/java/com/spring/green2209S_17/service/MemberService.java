@@ -44,8 +44,8 @@ public interface MemberService {
 
 	public void cpViewCntUpdate(int idx);
 
-	public void profileChange(MultipartHttpServletRequest file, HttpServletRequest request, UserVO vo);
+	public void profileChange(MultipartHttpServletRequest file, HttpServletRequest request, UserVO vo, HttpSession session);
 
-	public void profileDefault(UserVO vo, HttpServletRequest request);
+	public void profileDefault(UserVO vo, HttpServletRequest request, HttpSession session);
 
 }

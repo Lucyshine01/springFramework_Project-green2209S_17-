@@ -32,13 +32,13 @@
 		select count(*) from company where date_format(createDayCP,'%Y-%m') <![CDATA[ <= ]]> #{day3};
 	</select>
 	<select id="getRecentUserInfo" resultType="com.spring.green2209S_17.vo.UserVO">
-		select * from user order by createDay limit 0,5;
+		select * from user order by createDay desc limit 0,5;
 	</select>
 	<select id="getUserCount" resultType="java.lang.Integer">
 		select count(*) from user;
 	</select>
 	<select id="getCpCount" resultType="java.lang.Integer">
-		select count(*) from company;
+		select count(*) from company where act = 'off';
 	</select>
 	<select id="getHelpCount" resultType="java.lang.Integer">
 		select count(*) from help where conf = 'off';
@@ -57,7 +57,7 @@
 		update user set accStop = #{accStop} where mid = #{vo.replyMid};
 	</update>
 	<update id="helpAnswer">
-		update help set conf = 'on', answer = #{vo.answer} where idx = #{vo.idx};
+		update help set conf = 'on', answer = #{vo.answer}, answerDay = now() where idx = #{vo.idx};
 	</update>
 	
 </mapper>

@@ -404,10 +404,10 @@
 									<div class="ml-auto p-2" style="font-size: 1.05em; font-weight: 300;">
 										<fmt:formatDate value="${replyVOS[tot-st.index].writeDay}" pattern="MM-dd  HH:mm"/>
 									</div>
-									<c:if test="${replyVOS[st.index].mid != sMid}">
+									<c:if test="${replyVOS[tot-st.index].oriMid != sMid}">
 										<div onclick="reportModalOn(${replyVOS[tot-st.index].idx})" class="p-2 ml-1" style="font-size: 0.95em;cursor: pointer;">신고</div>
 									</c:if>
-									<c:if test="${replyVOS[st.index].mid == sMid}">
+									<c:if test="${replyVOS[tot-st.index].oriMid == sMid}">
 										<div onclick="replyDelete(${replyVOS[tot-st.index].idx})" class="p-2 ml-1" style="font-size: 0.95em;cursor: pointer;">삭제</div>
 									</c:if>
 								</div>

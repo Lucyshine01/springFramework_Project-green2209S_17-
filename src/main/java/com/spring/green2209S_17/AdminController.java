@@ -178,6 +178,7 @@ public class AdminController {
 	@ResponseBody
 	@RequestMapping(value="/helpAnswer", method = RequestMethod.POST)
 	public String helpAnswerPost(HelpVO vo) {
+		vo.setAnswer(vo.getAnswer().replaceAll("\n", "<br/>"));
 		int res = adminDAO.helpAnswer(vo);
 		return res + "";
 	}

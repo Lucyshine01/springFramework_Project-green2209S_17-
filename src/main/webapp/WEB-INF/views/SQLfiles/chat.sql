@@ -176,7 +176,20 @@ select * from
 				where f.mid in (e.sendId,e.receiveId) or g.mid in (e.sendId,e.receiveId)
 			
 
-
+select g.*,ifnull(group_concat(h.cpImg),(select profile from user where mid in (g.sendId,g.receiveId) and mid not in (#{mid}))) as oppImg
+			from (select e.*,ifnull(group_concat(f.cpName),'') as oppCpName ,ifnull(group_concat(f.mid),'') as oppCpMid, ifnull(group_concat(f.idx),'') as oppCpIdx
+							from (select d.*,c.roomId 
+											from (select max(a.sendDay) as lastDay,b.roomId
+															from chatcontent a INNER join chatroomid b 
+															on (a.sendId = b.userId_1 or a.receiveId = b.userId_1) and (a.sendId = b.userId_2 or a.receiveId = b.userId_2)
+															and (a.sendId = #{mid} or a.receiveId = #{mid}) group by roomId) c
+											inner join chatcontent d on sendDay in (c.lastDay) group by c.roomId) e
+							left join company f on f.mid in (e.sendId,e.receiveId) and f.mid not in (#{mid})
+							group by e.roomId,e.idx) g 
+			left join companyImg h
+			on h.cidx in (g.oppCpIdx)
+			group by g.idx
+			order by g.sendDay desc;
 
 
 

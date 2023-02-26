@@ -13,4 +13,6 @@ public class ReplyVO {
 	private Date writeDay;
 	private String mid;
 	private String profileImg;
+	
+	private String oriMid;
 }

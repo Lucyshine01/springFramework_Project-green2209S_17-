@@ -8,8 +8,10 @@
   <title>home.jsp</title>
   <jsp:include page="/WEB-INF/views/include/bs4.jsp"></jsp:include>
   <link href="${ctp}/viewPage/viewPage.css" rel="stylesheet" type="text/css">
-  <script></script>
-  <style></style>
+  <script>
+  </script>
+  <style>
+  </style>
 </head>
 
 <body ondragstart="return false" onselectstart="return false">
@@ -21,5 +23,6 @@
 	<jsp:include page="/WEB-INF/views/include/body.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 	<script src="${ctp}/viewPage/viewPage.js"></script>
+	
 </body>
 </html>

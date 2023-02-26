@@ -26,7 +26,7 @@
 	</select>
 	
 	<insert id="submitReply">
-		insert into reply values(default,#{boardIdx},#{content},${rating},now(),#{mid},#{profileImg});
+		insert into reply values(default,#{boardIdx},#{content},${rating},now(),#{mid});
 	</insert>
 	<insert id="reportReply">
 		insert into report values 
