@@ -48,4 +48,6 @@ public interface MemberService {
 
 	public void profileDefault(UserVO vo, HttpServletRequest request, HttpSession session);
 
+	public void myInfoDelete(String mid);
+
 }

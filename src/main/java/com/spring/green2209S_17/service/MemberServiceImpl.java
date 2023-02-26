@@ -357,4 +357,9 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.cpViewCntUpdate(idx);
 	}
 
+	@Override
+	public void myInfoDelete(String mid) {
+		memberDAO.myInfoDelete(mid);
+	}
+
 }

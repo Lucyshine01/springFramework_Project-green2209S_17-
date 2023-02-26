@@ -362,6 +362,15 @@ public class MemberController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/myInfoDelete", method = RequestMethod.POST)
+	public String myInfoDeletePost(HttpSession session) {
+		String mid = (String)session.getAttribute("sMid");
+		session.invalidate();
+		memberService.myInfoDelete(mid);
+		return "";
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/myinfoUpdate", method = RequestMethod.POST)
 	public String myinfoUpdatePost(UserVO vo, HttpSession session) {
 		int res = memberService.updateUserInfo(vo);

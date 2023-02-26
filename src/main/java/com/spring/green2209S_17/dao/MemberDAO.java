@@ -27,5 +27,7 @@ public interface MemberDAO {
 	public void updateUserProfile(@Param("profile") String profile, @Param("mid") String mid);
 
 	public void profileDefault(@Param("mid") String mid);
+
+	public void myInfoDelete(@Param("mid") String mid);
 	
 }

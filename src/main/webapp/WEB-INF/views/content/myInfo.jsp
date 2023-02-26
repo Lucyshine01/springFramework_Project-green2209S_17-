@@ -101,6 +101,25 @@
         });
     }
   	
+  	function myInfoDelete() {
+			let ans = confirm("정말로 계정을 탈퇴처리 하시겠습니까?");
+			if(!ans) return;
+			ans = confirm("탈퇴처리 후 계정을 복구할 수 없으며,\n해당 계정과 연동되있는 이메일,전화번호를 다시 이용할수 없습니다.\n그래도 진행하시겠습니까?");
+			if(!ans) return;
+			
+			$.ajax({
+				type: "post",
+				url: "${ctp}/member/myInfoDelete",
+				success: function() {
+					alert("탈퇴처리 되었습니다.");
+					location.href="${ctp}/";
+				},
+				error: function() {
+					alert("전송 오류");
+				}
+			});
+		}
+  	
   	function myInfoUpdate() {
   		let ans = confirm("수정하시겠습니까?"); 
   		if(!ans) return;
@@ -339,6 +358,7 @@
 		</div>
 		<div class="d-flex">
 			<div class="ml-auto" style="margin-right: 80px">
+				<input type="button" onclick="myInfoDelete()" value="회원탈퇴" class="btn btn-secondary mr-2"/>
 				<input type="button" onclick="myInfoUpdate()" value="수정하기" class="btn btn-danger mr-2"/>
 				<input type="button" onclick="myInfoReset()" value="원래대로" class="btn btn-success"/>
 			</div>

@@ -23,6 +23,9 @@
 	<update id="cpViewCntUpdate">
 		update company set viewCP = viewCP + 1 where idx = #{idx};
 	</update>
+	<update id="myInfoDelete">
+		update user set pwd = '', userLevel = '삭제' where mid = #{mid};
+	</update>
 	
 	<insert id="helpInput">
 		insert into help values(default,#{vo.title},#{vo.content},default,'',#{mid},default,null);
