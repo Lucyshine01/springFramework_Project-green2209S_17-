@@ -8,7 +8,9 @@
 
 - 테스트계정 - ID : test , PassWord : 1234 <br>
 - 사이트 메인홈 이미지
-[대충 여기에 메인홈 이미지]
+<div align="center">
+  <img src="https://drive.google.com/file/d/1ZbP07tPN9YkWb1yst37Cx3nFLPd5lK0C/view?usp=drive_link" width="20%">
+</div>
 
 <br><br>
 **목차**
