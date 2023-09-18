@@ -9,7 +9,7 @@
 - 테스트계정 - ID : test , PassWord : 1234 <br>
 - 사이트 메인홈 이미지
 <div align="center">
-  <img src="https://drive.usercontent.google.com/download?id=1ZbP07tPN9YkWb1yst37Cx3nFLPd5lK0C&export=download&authuser=0&confirm=t&uuid=4244d427-5711-4d04-a424-b03002883977&at=APZUnTW2ICiwwkszRwWIpU4I0_q0:1695035814854" width="80%">
+  <img src="https://drive.usercontent.google.com/download?id=1ZbP07tPN9YkWb1yst37Cx3nFLPd5lK0C&export=download&authuser=0&confirm=t&uuid=4244d427-5711-4d04-a424-b03002883977&at=APZUnTW2ICiwwkszRwWIpU4I0_q0:1695035814854" width="90%">
 </div>
 
 <br><br>
