@@ -8,7 +8,7 @@
 
 - 테스트계정 - ID : test , PassWord : 1234 <br>
 - 사이트 메인홈 이미지
-<div align="center">
+<div>
   <img src="https://drive.usercontent.google.com/download?id=1ZbP07tPN9YkWb1yst37Cx3nFLPd5lK0C&export=download&authuser=0&confirm=t&uuid=4244d427-5711-4d04-a424-b03002883977&at=APZUnTW2ICiwwkszRwWIpU4I0_q0:1695035814854" width="90%">
 </div>
 
@@ -103,7 +103,7 @@
 - 사용 API : SockJS(웹소켓), STOMP(채팅)
 
 # 3. 데이터베이스 구조
-<div align="center">
+<div>
   <img src="https://drive.usercontent.google.com/download?id=1OgjXrL4QhrNy7baFobqe6TCiMD3KZP4-&export=download&authuser=0&confirm=t&uuid=41f30ac3-05ec-4123-a49c-7ce03146c127&at=APZUnTWJaj15T10CpnLjZmNItELX:1695036151208" width="90%">
 </div>
 대부분의 테이블을 회원 테이블(user 테이블)의 mid 필드를 참조하여 연결
