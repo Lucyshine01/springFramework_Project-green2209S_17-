@@ -109,8 +109,5 @@
 [PPTfile]: [[http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com](https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000)https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000](https://docs.google.com/presentation/d/1x5vO0p4PDbU2HcflNs0YHbE6eLCalpoWjJzAv5ftfIY/edit?usp=sharing) "PPT"
 
 
-[슬라이드 PPT][slidePPT]
-
-[slidePPT]: [http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com](https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000)https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000 "슬라이드PPT"
 
 
