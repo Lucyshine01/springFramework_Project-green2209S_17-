@@ -1,5 +1,5 @@
 
-## <div align="center">인테리어 회사중개 사이트</div>
+## <center>인테리어 회사중개 사이트</center>
 
 **목차** <br>
 
