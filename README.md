@@ -103,8 +103,13 @@
 
 
 # 4. 기능 설명
-
-<iframe width="1280" height="749" src="https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/embed?start=false&loop=false&delayms=3000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
 <br>
-<iframe width="1044" height="587" src="https://www.youtube.com/embed/eUQFtpxet1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- 기능 설명문 PPT - [설명문 보러가기][PPTfile]
+
+[PPTfile]: [[http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com](https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000)https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000](https://docs.google.com/presentation/d/1x5vO0p4PDbU2HcflNs0YHbE6eLCalpoWjJzAv5ftfIY/edit?usp=sharing) "PPT"
+
+ - [슬라이드 PPT][slidePPT]
+
+[slidePPT]: [http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com](https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000)https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000 "슬라이드PPT"
+
+
