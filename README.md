@@ -22,6 +22,7 @@
 [5. 시연 영상](#5-시연-영상) <br>
 
 ------------
+<br><br>
 
 # 1. 개발개요
 **개발 동기** : 인테리어 업체를 운영하시는 아버지의 일을 보고 업체와 회원간의 편리한 소통사이트가 있으면 좋겠다는 생각으로 프로젝트를 진행하게되었습니다.<br>
@@ -93,7 +94,7 @@
     <td>자신의 업체소개글에 리뷰가 작성되거나 자신에게 채팅이 올 경우 실시간 알림으로 확인 할수 있습니다.</td>
   </tr>
 </table>
-
+<br><br>
 
 # 2. 개발환경
 - 개발 언어 : JAVA, JS, JQuery, JSP, HTML, CSS (spring Framework)
@@ -101,12 +102,14 @@
 - 데이터베이스 : MySQL5.7.19
 - 서버 : Apache Tomcat 9.0.8
 - 사용 API : SockJS(웹소켓), STOMP(채팅)
+<br><br>
 
 # 3. 데이터베이스 구조
 - 대부분의 테이블을 회원 테이블(user 테이블)의 mid 필드를 참조하여 연결
 <div>
   <img src="https://drive.usercontent.google.com/download?id=1OgjXrL4QhrNy7baFobqe6TCiMD3KZP4-&export=download&authuser=0&confirm=t&uuid=41f30ac3-05ec-4123-a49c-7ce03146c127&at=APZUnTWJaj15T10CpnLjZmNItELX:1695036151208" width="90%">
 </div>
+<br><br>
 
 # 4. 기능 설명
 
@@ -118,6 +121,7 @@
 
 [slidePPT]: http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com](https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000)https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000 "슬라이드PPT"
 
+<br><br>
 
 # 5. 시연 영상
 
