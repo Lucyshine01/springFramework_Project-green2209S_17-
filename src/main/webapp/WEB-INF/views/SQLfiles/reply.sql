@@ -40,6 +40,33 @@ select r.*,u.profile as profileImg from reply r
 	order by writeDay desc,idx desc;
 
 
+select * from reply order by writeDay desc;
+
+select c.cpName,r.* 
+	from company c right join reply r on concat('c',c.idx) = r.boardidx 
+	group by r.idx 
+	order by r.writeDay desc
+
+
+select count(*) from reply where content REGEXP '잘' order by rating desc ;
+select * from reply where content REGEXP ' ' order by rating desc, writeDay desc;
+
+select c.cpName as cpName,c.idx as cidx,r.* 
+			from company c right join reply r
+			on concat('c',c.idx) = r.boardidx 
+			where true
+			group by r.idx 
+			order by r.writeDay desc;
+
+
+select c.cpName as cpName,c.idx as cidx, r.* 
+	from company c right join reply r on concat('c',c.idx) = r.boardidx
+	where cpName like '%%'
+	group by r.idx
+	order by writeDay desc
+	limit 0,10;
+
+
 
 
 

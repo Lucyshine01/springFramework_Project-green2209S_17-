@@ -22,9 +22,12 @@
 		<!-- ?** : 매개변수넣기 --> <!-- allowMultiQueries=true : 매퍼에서 하나의 명령으로 여러개의 쿼리사용가능(insert문 등등) -->
 		<!-- zeroDateTimeBehavior=convertToNull : datetime 형식 null값 허용(0000-00-00 형식을 null로 처리) -->
 		<!-- &amp; : Entity Code(HTML 코드) 제어억제 코드, must end with the ';' delimiter 에러 시 &amp;로 교체 -->
-		<property name="url" value="jdbc:mysql://localhost:3306/green2209_17?allowMultiQueries=true"/>
+		<property name="url" value="jdbc:mysql://221.160.158.209:3306/green2209_17?"/>
 		<property name="username" value="root"/>
 		<property name="password" value="1234"/>
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/green2209_17?allowMultiQueries=true"/> -->
+		<!-- <property name="username" value="root"/> -->
+		<!-- <property name="password" value="1234"/> -->
 	</bean>
 	
 	
@@ -85,7 +88,5 @@
 			</props>
 		</property>
 	</bean>
-	
-	
 	
 </beans>

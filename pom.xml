@@ -142,12 +142,14 @@
 	<artifactId>spring-jdbc</artifactId>
 	<version>5.3.18</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
 	<groupId>mysql</groupId>
 	<artifactId>mysql-connector-java</artifactId>
 	<version>5.1.38</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 	<dependency>
 	<groupId>org.mybatis</groupId>
@@ -242,6 +244,7 @@
 		<version>${org.springframework-version}</version>
 	</dependency>
 	
+	<!-- 웹소켓 추가 -->
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
 	<dependency>
     <groupId>org.springframework</groupId>

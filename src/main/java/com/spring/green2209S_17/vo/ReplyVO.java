@@ -15,4 +15,6 @@ public class ReplyVO {
 	private String profileImg;
 	
 	private String oriMid;
+	private String cpName;
+	private int cidx;
 }

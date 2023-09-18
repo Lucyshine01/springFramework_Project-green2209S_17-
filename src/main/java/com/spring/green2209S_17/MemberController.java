@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.socket.TextMessage;
 
 import com.spring.green2209S_17.pagination.PageVO;
 import com.spring.green2209S_17.service.CompanyService;
@@ -169,6 +169,8 @@ public class MemberController {
 		if(errorCheckSW == 0 && !detail.equals("")) return "redirect:/msg/wrongUrl";
 		else if(!detail.equals("")) model.addAttribute("detail",detail);
 		if(pageVO.getPageSize() == 0) pageVO.setPageSize(9);
+		
+		System.out.println(orderBy + "/" + order + "/" + searchItem + "/" + searching);
 		
 		if(!searching.equals("")) {
 			model.addAttribute("searching",searching);
@@ -431,6 +433,30 @@ public class MemberController {
 		UserVO vo = memberService.getUserInfo(mid);
 		memberService.profileDefault(vo,request,session);
 		return "";
+	}
+	
+	@RequestMapping(value = "/reviewList", method = RequestMethod.GET)
+	public String reviewListGet(HttpSession session, Model model, PageVO pageVO,
+			@RequestParam(name = "orderBy", defaultValue = "writeDay", required = false) String orderBy,
+			@RequestParam(name = "order", defaultValue = "desc", required = false) String order,
+			@RequestParam(name = "searching", defaultValue = "", required = false) String searching,
+			@RequestParam(name = "searchItem", defaultValue = "cpName", required = false) String searchItem
+			) {
+		
+		ReplyVO vo = new ReplyVO();
+		List<ReplyVO> vos = replyService.getReplyAllList(pageVO,model,orderBy,order,searching,searchItem);
+		if(vos == null) return "content/reviewList";
+		for (int i=0; i<vos.size(); i++) {
+			vo = vos.get(i);
+			String mid = vo.getMid();
+			String changeMid = "";
+			if(mid.length()<6) changeMid = mid.substring(0,2) + "***";
+			else changeMid = mid.substring(0,2) + "***" + mid.substring(6);
+			vo.setMid(changeMid);
+			vos.set(i, vo);
+		}
+		model.addAttribute("vos", vos);
+		return "content/reviewList";
 	}
 	
 }

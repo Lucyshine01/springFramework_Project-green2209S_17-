@@ -38,7 +38,7 @@ public class ErrorAdvice {
 	
 	//400
 	@ExceptionHandler(BindException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(value =  HttpStatus.BAD_REQUEST)
 	public String badRequest(BindException ex, Model model, HttpServletRequest request) {
 		logger.error("예외오류발생 : {}", ex.getMessage());
 		logger.error("상세내용 : {}", ex.getStackTrace());
@@ -61,7 +61,7 @@ public class ErrorAdvice {
 	
 	//404
 	@ExceptionHandler(NoHandlerFoundException.class)
-	@ResponseStatus(HttpStatus.NOT_FOUND)
+	@ResponseStatus(value =  HttpStatus.NOT_FOUND)
 	public String notFound(NoHandlerFoundException ex, Model model, HttpServletRequest request) {
 		logger.error("예외오류발생 : {}", ex.getMessage());
 		logger.error("상세내용 : {}", ex.getStackTrace());

@@ -90,20 +90,20 @@
         <a href="${ctp}/member/helpCenter" class="nav-link nav-icon d-flex fCol_center">고객센터</a>
         <span id="help2" class="help">관리자와 <b>1대1 문의/답변</b>이 가능합니다.</span>
       </div>
-      <div class="navIconBox">
+      <!-- <div class="navIconBox">
         <a href="#" class="nav-link nav-icon d-flex fCol_center">의뢰 목록</a>
         <span id="help3" class="help">다양한 분야의 <b>전문가</b>에게 의뢰해보세요.<br/>(미구현)</span>
-      </div>
+      </div> -->
       <div class="navIconBox">
-        <a href="#" class="nav-link nav-icon d-flex fCol_center">후기</a>
-        <span id="help4" class="help">업체 및 인테모아의 <b>사용후기</b>를 작성해보세요.<br/>(미구현)</span>
+        <a href="${ctp}/member/reviewList" class="nav-link nav-icon d-flex fCol_center">후기</a>
+        <span id="help3" class="help">업체 및 인테모아의 <b>사용후기</b>를 찾아보세요.</span>
       </div>
       <div style="width: 150px;"></div>
     </nav>
    	<div class="ml-auto d-flex">
 		  <div class="d-flex fCol_center" style="padding-right: 15px">
-		    <a href="#" class="nav-link nav-icon d-flex fCol_center" style="font-size: 1em;">
-		      <span>원하는 서비스를 못 찾겠다면, <b>직접 의뢰</b>를 해보세요! ></span>
+		    <a href="${ctp}/member/reviewList" class="nav-link nav-icon d-flex fCol_center" style="font-size: 1em;">
+		      <span>맘에 드는 업체를 못 찾겠다면, <b>후기 검색</b>을 해보세요! ></span>
 		    </a>
 		  </div>
     </div>

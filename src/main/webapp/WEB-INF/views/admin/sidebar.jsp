@@ -24,8 +24,8 @@
               <a class="nav-link" href="${ctp}/admin/companyManage">
               	<div class="iconBlock"><i class="fa-regular fa-building"></i></div>업체 관리
               </a>
-              <a class="nav-link" href="#">
-              	<div class="iconBlock"><i class="fa-solid fa-list"></i></div>(미구현)의뢰 관리
+              <a class="nav-link" href="${ctp}/admin/replyManage">
+              	<div class="iconBlock"><i class="fa-solid fa-list"></i></div>후기 관리
               </a>
             </nav>
           </div>

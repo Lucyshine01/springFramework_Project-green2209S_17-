@@ -14,7 +14,7 @@ public class MessageController {
 	@RequestMapping(value = "/msg/{msgFlag}", method = RequestMethod.GET)
 	public String msgget(@PathVariable String msgFlag, Model model, HttpServletRequest request,
 			@RequestParam(name = "url", defaultValue = "", required = false) String url) {
-		String homeUrl = request.getLocalAddr() + ":" + request.getLocalPort() + request.getContextPath();
+		String homeUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getLocalPort() + request.getContextPath();
 		if(msgFlag.equals("actEmailNoFound")) {
 			model.addAttribute("msg", "잘못된 인증 URL입니다.");
 			model.addAttribute("url", homeUrl);

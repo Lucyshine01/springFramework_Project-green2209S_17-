@@ -22,6 +22,7 @@ import com.spring.green2209S_17.service.MemberService;
 import com.spring.green2209S_17.vo.CompanyVO;
 import com.spring.green2209S_17.vo.HelpVO;
 import com.spring.green2209S_17.vo.PaymentVO;
+import com.spring.green2209S_17.vo.ReplyVO;
 import com.spring.green2209S_17.vo.ReportVO;
 import com.spring.green2209S_17.vo.UserVO;
 
@@ -49,6 +50,7 @@ public class AdminController {
 		String day = "";
 		String day2 = "\"";
 		String day3 = "";
+		List<String> day4 = new ArrayList<String>();
 		List<Integer> cpTotVos = new ArrayList<Integer>();
 		for(int i=9; i>=0; i--) {
 			LocalDate date = LocalDate.now().minusMonths(i);
@@ -58,11 +60,14 @@ public class AdminController {
 			day += "\""+yy+"-"+mm+"\",";
 			day2 +=  yy+"-"+mm +",";
 			day3 = yy+"-"+mm;
+			day4.add(day3);
 			if(i<=5) cpTotVos.add(adminDAO.getCpMonthTot(day3));
 		}
 		day=day.substring(0,day.length()-1);
 		day2 = day2.substring(0,day2.length()-1) + "\"";
-		List<Integer> userTotVos = adminDAO.getUserMonthTot(day,day2);
+		
+		List<Integer> userTotVos = adminDAO.getUserMonthTot(day,day2,day4);
+		
 		
 		List<UserVO> userVOS = adminDAO.getRecentUserInfo();
 		
@@ -180,6 +185,25 @@ public class AdminController {
 	public String helpAnswerPost(HelpVO vo) {
 		vo.setAnswer(vo.getAnswer().replaceAll("\n", "<br/>"));
 		int res = adminDAO.helpAnswer(vo);
+		return res + "";
+	}
+	
+	@RequestMapping("/replyManage")
+	public String replyManageGet(Model model) {
+		List<ReplyVO> vos = adminDAO.getAllReplyList();
+		model.addAttribute("vos",vos);
+		return "admin/replyManage";
+	}
+	@ResponseBody
+	@RequestMapping(value="/replyInfo", method = RequestMethod.POST)
+	public ReplyVO replyInfoPost(@RequestParam("idx") int idx) {
+		ReplyVO vo = adminDAO.getReplyInfo(idx);
+		return vo;
+	}
+	@ResponseBody
+	@RequestMapping(value="/removeReply", method = RequestMethod.POST)
+	public String removeReplyPost(@RequestParam("idx") int idx) {
+		int res = adminDAO.removeReply(idx);
 		return res + "";
 	}
 	

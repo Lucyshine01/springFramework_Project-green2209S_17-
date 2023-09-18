@@ -18,11 +18,11 @@
 	<select id="getTermList" resultType="hashmap">
 		select ${select} from ${tableName} where ${feildName} like '%${feildWord}%' ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
 	</select>
-	<select id="getTermListManyWords" resultType="hashmap">
-		select ${select} from ${tableName} where ${feildName} REGEXP #{feildWord} ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
-	</select>
 	<select id="getTermList_Search" resultType="hashmap">
 		select ${select} from ${tableName} where ${searching} and (${feildName} like '%${feildWord}%') ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
+	</select>
+	<select id="getTermListManyWords" resultType="hashmap">
+		select ${select} from ${tableName} where ${feildName} REGEXP #{feildWord} ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};
 	</select>
  	<select id="getTermListManyWords_Search" resultType="hashmap">
 		select ${select} from ${tableName} where ${searching} and (${feildName} REGEXP #{feildWord}) ${other} ${group_by} order by ${orderBy} ${order} limit ${startIndexNo},${pageSize};

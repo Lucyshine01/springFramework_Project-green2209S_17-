@@ -223,11 +223,11 @@ public class MemberServiceImpl implements MemberService {
 		else if(!searching.equals("")) searching = "(" + searchItem + " like '%" +searching+ "%')";
 		
 		String select = "*";
-		String group_by = "";
 		String tableName = "company";
 		String feildName = "cpExp";
 		String feildWord = "";
 		String other = " and act = 'on' ";
+		String group_by = "";
 		if(orderBy.equals("rating")) {
 			select = "c.*,ifnull(avg(r.rating),0) as starAvg";
 			tableName = "company c left join reply r on concat('c',c.idx) = r.boardidx";
@@ -252,7 +252,7 @@ public class MemberServiceImpl implements MemberService {
 				pageProcess.paging(pageVO, model, tableName, feildName, feildWord, orderBy, order, select, group_by, other) :
 				pageProcess.paging_Search(pageVO, model, tableName, feildName, feildWord, orderBy, order, searchItem, searching, select, group_by, other);
 		}
-		else {
+		else {	// 중분류 카테고리 검색 (ex. 인테리어, 시공, 디자인 클릭)
 			for(String word : categoriWord) feildWord += word + "|";
 			feildWord = feildWord.substring(0, feildWord.length()-1);
 			listMap = searching.equals("") ? 
@@ -274,6 +274,7 @@ public class MemberServiceImpl implements MemberService {
 			star_WHERE = star_WHERE.substring(0,star_WHERE.length()-1);
 			star_FIND_IN_SET = star_FIND_IN_SET.substring(0,star_FIND_IN_SET.length()-1) + "'";
 		}
+		
 		
 		String[] strStars = replyDAO.getStarList(star_WHERE,star_FIND_IN_SET);
 		double[] starAvgs = new double[strStars.length];
@@ -315,7 +316,10 @@ public class MemberServiceImpl implements MemberService {
 		if(vos.size() > 0) {
 			for(ReplyVO vo : vos) {
 				String mid = vo.getMid();
-				vo.setMid(mid.substring(0,2)+"***"+mid.substring(6));
+				String changeMid = "";
+				if(mid.length()<6) changeMid = mid.substring(0,2) + "***";
+				else changeMid = mid.substring(0,2) + "***" + mid.substring(6);
+				vo.setMid(changeMid);
 				vo.setOriMid(mid);
 			}
 		}

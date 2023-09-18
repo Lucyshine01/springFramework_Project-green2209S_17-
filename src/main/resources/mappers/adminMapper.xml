@@ -16,17 +16,38 @@
 	<select id="getAllHelpList" resultType="com.spring.green2209S_17.vo.HelpVO">
 		select * from help order by writeDay desc;
 	</select>
+	<select id="getAllReplyList" resultType="com.spring.green2209S_17.vo.ReplyVO">
+		select * from reply order by writeDay desc;
+	</select>
 	<select id="getPaymentInfo" resultType="com.spring.green2209S_17.vo.PaymentVO">
 		select * from payment where idx = #{idx};
 	</select>
 	<select id="gethelpInfo" resultType="com.spring.green2209S_17.vo.HelpVO">
 		select * from help where idx = #{idx};
 	</select>
+	<select id="getReplyInfo" resultType="com.spring.green2209S_17.vo.ReplyVO">
+		select * from reply where idx = #{idx};
+	</select>
 	<select id="getUserMonthTot" resultType="java.lang.Integer">
-		select count(*) from user 
-			where date_format(createDay,'%Y-%m') in (${day}) 
-			group by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2})
-			order by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2});
+		select ifnull(u.cnt,0) from
+			(select date_format(createDay,'%Y-%m') as dates ,count(*) as cnt from user 
+				where date_format(createDay,'%Y-%m') in (${day})
+				group by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2})
+				order by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2})) u
+			right join (select * from (
+										  select #{day4[9]} as dates2 union all
+										  select #{day4[8]} union all
+										  select #{day4[7]} union all
+										  select #{day4[6]} union all
+										  select #{day4[5]} union all
+										  select #{day4[4]} union all
+										  select #{day4[3]} union all
+										  select #{day4[2]} union all
+										  select #{day4[1]} union all
+										  select #{day4[0]} 
+										) t) d
+			on u.dates = d.dates2
+			group by d.dates2
 	</select>
 	<select id="getCpMonthTot" resultType="java.lang.Integer">
 		select count(*) from company where date_format(createDayCP,'%Y-%m') <![CDATA[ <= ]]> #{day3};
@@ -58,6 +79,9 @@
 	</update>
 	<update id="helpAnswer">
 		update help set conf = 'on', answer = #{vo.answer}, answerDay = now() where idx = #{vo.idx};
+	</update>
+	<update id="removeReply">
+		update reply set content = '관리자에 의해 삭제된 댓글입니다.', rating = 0 where idx = #{idx};
 	</update>
 	
 </mapper>

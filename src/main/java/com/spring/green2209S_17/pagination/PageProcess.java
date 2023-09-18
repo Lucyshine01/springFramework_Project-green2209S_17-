@@ -52,14 +52,17 @@ public class PageProcess {
 			else vo.setTotRecCnt(PageDAO.totTermRecCnt_Search(tableName, feildName, feildWord, searchItem, searching, other));
 		}
 		
-		
+		return pagingSub(vo, model, feildName, feildWord);
+	}
+	
+	public PageVO pagingSub(PageVO vo, Model model, String feildName, String feildWord) {
 		vo.setTotPage(vo.getTotRecCnt() % vo.getPageSize()==0 ? vo.getTotRecCnt() / vo.getPageSize() : (vo.getTotRecCnt() / vo.getPageSize())+1);
 		if((vo.getTotPage() < vo.getPag() || vo.getPag() < 1) && vo.getTotPage() > 0) vo.setPag(vo.getTotPage());
 		
 		vo.setStartIndexNo((vo.getPag()-1) * vo.getPageSize());
 		vo.setCurScrStartNo(vo.getTotRecCnt() - vo.getStartIndexNo());
 		
-		vo.setBlockSize(3);
+		if(vo.getBlockSize()==0) vo.setBlockSize(3);
 		vo.setCurBlock((vo.getPag() - 1) / vo.getBlockSize());
 		vo.setLastBlock((vo.getTotPage()-1) / vo.getBlockSize());
 		
@@ -78,8 +81,6 @@ public class PageProcess {
 		model.addAttribute("feildWord",feildWord);
 		return vo;
 	}
-	
-
 	
 //	public ArrayList<MemberVO> paging(PageVO vo, Model model, String tableName) {
 //		

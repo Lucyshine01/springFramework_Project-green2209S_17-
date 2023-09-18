@@ -207,6 +207,64 @@ select c.*,count(r.idx) from company c left join reply r on concat('c',c.idx) = 
 select c.*, count(r.idx) as cnt from company c left join reply r on concat('c',c.idx) = r.boardidx where cpExp like '%조명%' and act = 'on' group by c.idx order by cnt desc;
 
 
+
+select count(*) from user 
+			where date_format(createDay,'%Y-%m') in ("2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03") 
+			group by FIND_IN_SET(date_format(createDay,'%Y-%m'),"2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03")
+			order by FIND_IN_SET(date_format(createDay,'%Y-%m'),"2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03")
+
+select ifnull(u.cnt,0) from
+	(select date_format(createDay,'%Y-%m') as dates ,count(*) as cnt from user 
+				where date_format(createDay,'%Y-%m') in ("2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03") 
+				group by FIND_IN_SET(date_format(createDay,'%Y-%m'),"2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03")
+				order by FIND_IN_SET(date_format(createDay,'%Y-%m'),"2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03")) u
+	right join (select * from (
+								  select "2022-06" as dates2 union all
+								  select "2022-07" union all
+								  select "2022-08" union all
+								  select "2022-09" union all
+								  select "2022-10" union all
+								  select "2022-11" union all
+								  select "2022-12" union all
+								  select "2023-01" union all
+								  select "2023-02" union all
+								  select "2023-03" 
+								) t) d
+	on u.dates = d.dates2
+	group by d.dates2
+
+	
+select count(*) from user 
+			where date_format(createDay,'%Y-%m') in (${day}) 
+			group by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2})
+			order by FIND_IN_SET(date_format(createDay,'%Y-%m'),${day2});
+				
+
+select * 
+from (
+  select "2022-06" as some_value union all
+  select "2022-07" union all
+  select "2022-08" union all
+  select "2022-09" union all
+  select "2022-10" union all
+  select "2022-11" union all
+  select "2022-12" union all
+  select "2023-01" union all
+  select "2023-02" union all
+  select "2023-03" 
+) t
+
+select a.* from (
+	select "1","2","3","4","5","6","7","8","9","10" union all
+	select "2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03") a
+
+	
+SELECT *
+FROM 
+(VALUES ('4605'),('4606'),('4607'),('111')) A (ID)
+LEFT OUTER JOIN TBLA B
+ON B.ID = A.ID
+
 drop table user;
 drop table company;
 drop table emailAct;

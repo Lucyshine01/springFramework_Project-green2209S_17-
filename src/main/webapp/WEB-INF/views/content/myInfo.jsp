@@ -392,7 +392,7 @@
 							<td><fmt:formatDate value="${pointVO.usePointDay}" pattern="yyyy년 MM월 dd일" /></td>
 						</tr>
 					</c:forEach>
-					<tr><td colspan="5"></td></tr>
+					<tr><td colspan="5" style="padding: 0px"></td></tr>
 				</table>
 			</div>
 			<div class="text-left pt-3 ml-auto" style="width: 250px;">

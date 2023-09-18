@@ -25,6 +25,9 @@
 		select avg(rating) from reply where boardIdx = #{boardIdx} and rating not in (0);
 	</select>
 	
+	
+	
+	
 	<insert id="submitReply">
 		insert into reply values(default,#{boardIdx},#{content},${rating},now(),#{mid});
 	</insert>

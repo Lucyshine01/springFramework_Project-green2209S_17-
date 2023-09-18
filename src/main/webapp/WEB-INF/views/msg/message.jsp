@@ -12,7 +12,7 @@
 		let msg = '${msg}';
 		let url = '${url}';
 		if(msg != '') alert(msg);
-		location.href = 'http://'+url;
+		location.href = url;
 	</script>
 </head>
 </html>
