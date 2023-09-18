@@ -1,10 +1,10 @@
 <h1 align="center">인테리어 회사중개 사이트</h1>
 <br><br>
 프로젝트 사이트명 : 인테모아(Intemoa)<br>
-* 배포된 프로젝트 방문 - [보러가기][link]
+* 배포된 프로젝트 방문(아마존 클라우드 서비스 사용(AWS EC2))  - [보러가기][link]
 [link]: http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com "프로젝트 사이트 방문하기"
 <br>
-* 아마존 클라우드 서비스 사용(AWS EC2)
+* 테스트계정 - ID : test , PassWord : 1234
 * 사이트 메인홈 이미지
 [대충 여기에 메인홈 이미지]
 
@@ -91,5 +91,15 @@
 
 
 # 2. 개발환경
+- 개발 언어 : JAVA, JS, JQuery, JSP, HTML, CSS (spring Framework)
+- 개발 프로그램 : spring-tool-suit 4.14.1 (Eclipes IDE 2022.03)
+- 데이터베이스 : MySQL5.7.19
+- 서버 : Apache Tomcat 9.0.8
+- 사용 API : SockJS(웹소켓), STOMP(채팅)
 
 # 3. 데이터베이스 구조
+
+
+# 4. 기능 설명
+
+
