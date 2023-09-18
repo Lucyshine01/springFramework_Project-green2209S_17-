@@ -19,7 +19,7 @@
 [2. 개발환경](#2-개발환경) <br>
 [3. 데이터베이스 구조](#3-데이터베이스-구조) <br>
 [4. 기능 설명](#4-기능-설명) <br>
-[5. 기능 설명](#5-시연-영상) <br>
+[5. 시연 영상](#5-시연-영상) <br>
 
 ------------
 
@@ -103,7 +103,10 @@
 - 사용 API : SockJS(웹소켓), STOMP(채팅)
 
 # 3. 데이터베이스 구조
-
+<div align="center">
+  <img src="https://drive.usercontent.google.com/download?id=1OgjXrL4QhrNy7baFobqe6TCiMD3KZP4-&export=download&authuser=0&confirm=t&uuid=41f30ac3-05ec-4123-a49c-7ce03146c127&at=APZUnTWJaj15T10CpnLjZmNItELX:1695036151208" width="90%">
+</div>
+대부분의 테이블을 회원 테이블(user 테이블)의 mid 필드를 참조하여 연결
 
 # 4. 기능 설명
 
