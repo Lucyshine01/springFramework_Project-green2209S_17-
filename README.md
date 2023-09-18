@@ -23,7 +23,7 @@
 <table>
   <tr>
     <td>관리자 페이지</td>
-    <td>내용</td>
+    <td align="center">내용</td>
   </tr>
   <tr>
     <td>회원, 업체 관리</td>
