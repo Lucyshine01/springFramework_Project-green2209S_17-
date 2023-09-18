@@ -6,7 +6,6 @@
 
 [link]: http://ec2-43-200-238-66.ap-northeast-2.compute.amazonaws.com "프로젝트 사이트 방문하기"
 
-<br>
 - 테스트계정 - ID : test , PassWord : 1234 <br>
 - 사이트 메인홈 이미지
 [대충 여기에 메인홈 이미지]
