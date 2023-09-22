@@ -22,7 +22,6 @@
 - [2. 개발환경](#2-개발환경) <br>
 - [3. 데이터베이스 구조](#3-데이터베이스-구조) <br>
 - [4. 기능 설명](#4-기능-설명) <br>
-- [5. 시연 영상](#5-시연-영상) <br>
 
 <br>
 ------------
@@ -126,7 +125,5 @@
 [slidePPT]: https://docs.google.com/presentation/d/e/2PACX-1vRRJ1jh6h6xwlClMy8dkBJqLiPcroYRrHvGirTQe8w60VneiV0KN2wKduP4vNcKTcMnQmoHR7Q-GIX_/pub?start=false&loop=false&delayms=3000 "슬라이드PPT"
 
 <br><br>
-
-# 5. 시연 영상
 
 
